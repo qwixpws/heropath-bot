@@ -1,18 +1,17 @@
 require('dotenv').config();
 
 //const activityRoutes = require('./routes/activityRoutes.js');
-const express = require('express');
-const telegramBot = require('./bots/telegramBot.js');
-const discordBot = require('./bots/discordBot.js');
-const sequelize = require('./configs/database.js');
+const express       = require('express');
+const telegramBot   = require('./bots/telegramBot.js');
+//const discordBot    = require('./bots/discordBot.js');
+const sequelize     = require('./configs/database.js');
 
-const app = express();
-
+const app           = express();
 app.use(express.json());
 
-sequelize.sync()
-    .then(() => console.log('[STATUS]: Database synchronized'))
-    .catch((err) => console.log('[ERR]: ' + err));
+//sequelize.sync()
+    //.then(() => console.log('[STATUS]: Database synchronized'))
+    //.catch((err) => console.log('[ERR]: ' + err));
 
 //app.use('/api/activities', activityRoutes);
 
