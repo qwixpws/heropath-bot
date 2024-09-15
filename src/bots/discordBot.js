@@ -6,16 +6,18 @@ const client = new Client({
     ]
 });
 
+client.login(process.env.DISCORD_TOKEN);
+
 client.once('ready', () => {
     console.log('[STATUS]: Discord bot is ready');
 });
 
 client.on('messageCreate' , message => {
+    console.log(`[DS_BOT]: msg: ${messageCreate}`);
     if (message.content === '!start') {
         message.channel.send('Welcome to Heroe\'s Path bot');
     }
 });
 
-client.login(process.env.DISCORD_TOKEN);
 
 module.exports = client;

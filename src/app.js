@@ -1,10 +1,10 @@
 require('dotenv').config();
 
-//const activityRoutes = require('./routes/activityRoutes.js');
 const express       = require('express');
-const telegramBot   = require('./bots/telegramBot.js');
-//const discordBot    = require('./bots/discordBot.js');
 const sequelize     = require('./configs/database.js');
+const telegramBot   = require('./bots/telegramBot.js');
+const discordBot    = require('./bots/discordBot.js');
+//const activityRoutes = require('./routes/activityRoutes.js');
 
 const app           = express();
 app.use(express.json());

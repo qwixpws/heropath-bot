@@ -1,0 +1,44 @@
+-- Users Table
+CREATE TABLE users (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  username VARCHAR(255) NOT NULL,
+  telegramId VARCHAR(255),
+  discordId VARCHAR(255),
+  createdAt TIMESTAMP DEFAULT NOW(),
+  updatedAt TIMESTAMP DEFAULT NOW()
+);
+
+-- Skills Table
+CREATE TABLE skills (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  name VARCHAR(255) NOT NULL,
+  userId UUID REFERENCES users(id),
+  createdAt TIMESTAMP DEFAULT NOW()
+);
+
+-- Activities Table
+CREATE TABLE activities (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  userId UUID REFERENCES users(id),
+  description TEXT NOT NULL,
+  timeSpent INTEGER NOT NULL,
+  multiplier FLOAT DEFAULT 1.0,
+  createdAt TIMESTAMP DEFAULT NOW(),
+  updatedAt TIMESTAMP DEFAULT NOW()
+);
+
+-- Join Table for Activity and Skills (many-to-many relationship)
+CREATE TABLE activity_skills (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  activityId UUID REFERENCES activities(id),
+  skillId UUID REFERENCES skills(id)
+);
+
+-- Multipliers Audit Log Table
+CREATE TABLE multipliers (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  activityId UUID REFERENCES activities(id),
+  previousMult FLOAT NOT NULL,
+  newMult FLOAT NOT NULL,
+  adjustedAt TIMESTAMP DEFAULT NOW()
+);
