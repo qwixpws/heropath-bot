@@ -1,5 +1,5 @@
 const { DataTypes } = require('sequelize');
-const sequelize     = require('../configs/database.js');
+const sequelize = require('../configs/database.js');
 
 const Activity = sequelize.define('Activity', {
     id: {
@@ -15,7 +15,7 @@ const Activity = sequelize.define('Activity', {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    timeSpent: {
+    time_spent: {
         type: DataTypes.INTEGER,
         allowNull: false,
     },
@@ -23,22 +23,20 @@ const Activity = sequelize.define('Activity', {
         type: DataTypes.INTEGER,
         allowNull: false,
     },
-    userId: {
+    user_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
     },
-    skillId: {
+    skill_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
-    },
-    createdAt: {
-        type: DataTypes.TIME,
-        allowNull: false,
-    },
-    updatedAt: {
-        type: DataTypes.TIME,
-        allowNull: true,
     }
-});
+},
+    {
+        underscored: true,
+        timestamps: true,
+        tableName: 'activities'
+    }
+);
 
 module.exports = Activity;

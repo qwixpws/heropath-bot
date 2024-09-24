@@ -15,22 +15,20 @@ const Skill  = sequelize.define('Skill', {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    createdBy: {
+    created_by: {
         type: DataTypes.INTEGER,
         allowNull: false,
     },
-    isPublic: {
+    is_public: {
         type: DataTypes.BOOLEAN,
         allowNull: false,
-    },
-    updatedAt: {
-        type: DataTypes.TIME,
-        allowNull: true,
-    },
-    createdAt: {
-        type: DataTypes.TIME,
-        allowNull: false,
     }
-});
+},
+    {
+        underscored: true,
+        timestamps: true,
+        tableName: 'skills'
+    }
+);
 
 module.exports = Skill;

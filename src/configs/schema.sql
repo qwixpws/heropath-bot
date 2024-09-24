@@ -5,7 +5,7 @@ CREATE TABLE users (
   telegram_id   VARCHAR(255),
   discord_id    VARCHAR(255),
   created_at    TIMESTAMP DEFAULT NOW(),
-  updated_at    TIMESTAMP DEFAULT NOW()
+  updated_at    TIMESTAMP DEFAULT NOW(),
   email         VARCHAR(255)
 );
 
@@ -58,3 +58,10 @@ CREATE TABLE admin_reviews (
     created_at  TIMESTAMP DEFAULT NOW()
 );
 
+--DROP TABLES
+DROP TABLE users CASCADE;
+DROP TABLE skills CASCADE;
+DROP TABLE activities CASCADE;
+DROP TABLE activity_skills CASCADE;
+DROP TABLE multipliers CASCADE;
+DROP TABLE admin_reviews CASCADE;
