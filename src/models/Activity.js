@@ -1,5 +1,5 @@
-const { DataTypes } = require('sequelize');
-const sequelize = require('../configs/database.js');
+const { DataTypes }     = require('sequelize');
+const sequelize         = require('../configs/database.js');
 
 const Activity = sequelize.define('Activity', {
     id: {
@@ -18,10 +18,12 @@ const Activity = sequelize.define('Activity', {
     time_spent: {
         type: DataTypes.INTEGER,
         allowNull: false,
+        defaultValue: 0
     },
     multiplier: {
         type: DataTypes.INTEGER,
         allowNull: false,
+        defaultValue: 1
     },
     user_id: {
         type: DataTypes.INTEGER,
